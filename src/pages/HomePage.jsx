@@ -11,7 +11,8 @@ const HomePage = () => {
     <Link to="/register">
       <button className="bg-blue-500 text-white px-4 py-2 rounded mb-4">Add New</button>
     </Link>
-    <ul className="list-disc list-inside">
+    <h1>Registered Users</h1>
+    <ul className="grid grid-cols-2 grid-rows-1 gap-20">
       {registrations.map((reg) => (
         <li key={reg.id} className="mb-2">
           <Link to={`/user/${reg.id}`} className="text-blue-500 hover:underline">
