@@ -35,9 +35,9 @@ const RegistrationForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="grid grid-cols-2 grid-rows-5 gap-6 p-5 justify-items-center">
-        <label>
+    <form onSubmit={handleSubmit} className="flex flex-col items-center">
+      <div className="grid grid-cols-2 grid-rows-5 gap-6 p-5">
+        <label className="flex flex-col">
           Full Name:
           <input
             type="text"
@@ -45,9 +45,10 @@ const RegistrationForm = () => {
             value={formData.name}
             onChange={handleChange}
             required
+            className="mt-1 border border-gray-300 rounded px-2 py-1"
           />
         </label>
-        <label>
+        <label className="flex flex-col">
           Date of Birth:
           <input
             type="date"
@@ -55,9 +56,10 @@ const RegistrationForm = () => {
             value={formData.dob}
             onChange={handleChange}
             required
+            className="mt-1 border border-gray-300 rounded px-2 py-1"
           />
         </label>
-        <label>
+        <label className="flex flex-col">
           Address:
           <input
             type="text"
@@ -65,9 +67,10 @@ const RegistrationForm = () => {
             value={formData.address}
             onChange={handleChange}
             required
+            className="mt-1 border border-gray-300 rounded px-2 py-1"
           />
         </label>
-        <label>
+        <label className="flex flex-col">
           Email:
           <input
             type="email"
@@ -75,9 +78,10 @@ const RegistrationForm = () => {
             value={formData.email}
             onChange={handleChange}
             required
+            className="mt-1 border border-gray-300 rounded px-2 py-1"
           />
         </label>
-        <label>
+        <label className="flex flex-col">
           Phone Number:
           <input
             type="tel"
@@ -85,9 +89,10 @@ const RegistrationForm = () => {
             value={formData.number}
             onChange={handleChange}
             required
+            className="mt-1 border border-gray-300 rounded px-2 py-1"
           />
         </label>
-        <label>
+        <label className="flex flex-col">
           Educational Qualification:
           <input
             type="text"
@@ -95,9 +100,10 @@ const RegistrationForm = () => {
             value={formData.eduQualification}
             onChange={handleChange}
             required
+            className="mt-1 border border-gray-300 rounded px-2 py-1"
           />
         </label>
-        <label>
+        <label className="flex flex-col">
           Experience:
           <input
             type="text"
@@ -105,9 +111,10 @@ const RegistrationForm = () => {
             value={formData.experience}
             onChange={handleChange}
             required
+            className="mt-1 border border-gray-300 rounded px-2 py-1"
           />
         </label>
-        <label>
+        <label className="flex flex-col">
           Position Applied For:
           <input
             type="text"
@@ -115,9 +122,10 @@ const RegistrationForm = () => {
             value={formData.position}
             onChange={handleChange}
             required
+            className="mt-1 border border-gray-300 rounded px-2 py-1"
           />
         </label>
-        <label>
+        <label className="flex flex-col">
           Preferred Location:
           <input
             type="text"
@@ -125,14 +133,26 @@ const RegistrationForm = () => {
             value={formData.location}
             onChange={handleChange}
             required
+            className="mt-1 border border-gray-300 rounded px-2 py-1"
           />
         </label>
-        <label>
+        <label className="flex flex-col">
           Upload Resume:
-          <input type="file" name="resume" onChange={handleChange} required />
+          <input
+            type="file"
+            name="resume"
+            onChange={handleChange}
+            required
+            className="mt-1"
+          />
         </label>
       </div>
-      <button className="bg-blue-600 p-4 rounded-md" type="submit">Submit</button>
+      <button
+        className="bg-blue-600 text-white p-4 rounded-md mt-4"
+        type="submit"
+      >
+        Submit
+      </button>
     </form>
   );
 };
