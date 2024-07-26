@@ -6,19 +6,22 @@ const HomePage = () => {
   const registrations = useSelector((state) => state.user.users);
 
   return (
-    <div>
-      <h1>Bank Recruitment Registrations</h1>
-      <Link to="/register">
-        <button>Add New</button>
-      </Link>
-      <ul>
-        {registrations.map((reg) => (
-          <li key={reg.id}>
-            <Link to={`/user/${reg.id}`}>{reg.name}</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <div className="flex flex-col items-center justify-center min-h-screen p-4">
+    <h1 className="text-2xl font-bold mb-4">Bank Recruitment Registrations</h1>
+    <Link to="/register">
+      <button className="bg-blue-500 text-white px-4 py-2 rounded mb-4">Add New</button>
+    </Link>
+    <ul className="list-disc list-inside">
+      {registrations.map((reg) => (
+        <li key={reg.id} className="mb-2">
+          <Link to={`/user/${reg.id}`} className="text-blue-500 hover:underline">
+            {reg.name}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </div>
+  
   );
 };
 
