@@ -30,7 +30,9 @@ const RegistrationForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addUser(formData));
+    const resumeUrl = formData.resume ? URL.createObjectURL(formData.resume) : null;
+
+    dispatch(addUser({...formData, resumeUrl}));
     navigate("/thank-you");
   };
 
@@ -94,48 +96,99 @@ const RegistrationForm = () => {
         </label>
         <label className="flex flex-col">
           Educational Qualification:
-          <input
-            type="text"
+          <select
             name="eduQualification"
             value={formData.eduQualification}
             onChange={handleChange}
             required
             className="mt-1 border border-gray-300 rounded px-2 py-1"
-          />
+          >
+            <option value="" disabled>
+              Select your qualification
+            </option>
+            <option value="B.Tech">B.Tech</option>
+            <option value="B.Sc">B.Sc</option>
+            <option value="M.Sc">M.Sc</option>
+            <option value="MBA">MBA</option>
+          </select>
         </label>
         <label className="flex flex-col">
-          Experience:
-          <input
-            type="text"
+          Experience (in years):
+          <select
             name="experience"
             value={formData.experience}
             onChange={handleChange}
             required
             className="mt-1 border border-gray-300 rounded px-2 py-1"
-          />
+          >
+            <option value="" disabled>
+              Select years of experience
+            </option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10+</option>
+          </select>
         </label>
         <label className="flex flex-col">
           Position Applied For:
-          <input
-            type="text"
+          <select
             name="position"
             value={formData.position}
             onChange={handleChange}
             required
             className="mt-1 border border-gray-300 rounded px-2 py-1"
-          />
+          >
+            <option value="" disabled>
+              Select a position
+            </option>
+            <option value="Software Engineer">Software Engineer</option>
+            <option value="Frontend Developer">Frontend Developer</option>
+            <option value="Backend Developer">Backend Developer</option>
+            <option value="Full Stack Developer">Full Stack Developer</option>
+            <option value="DevOps Engineer">DevOps Engineer</option>
+            <option value="Data Scientist">Data Scientist</option>
+            <option value="Machine Learning Engineer">
+              Machine Learning Engineer
+            </option>
+            <option value="QA Engineer">QA Engineer</option>
+            <option value="UI/UX Designer">UI/UX Designer</option>
+            <option value="Systems Analyst">Systems Analyst</option>
+          </select>
         </label>
+
         <label className="flex flex-col">
           Preferred Location:
-          <input
-            type="text"
+          <select
             name="location"
             value={formData.location}
             onChange={handleChange}
             required
             className="mt-1 border border-gray-300 rounded px-2 py-1"
-          />
+          >
+            <option value="" disabled>
+              Select a city
+            </option>
+            <option value="Bangalore">Bangalore</option>
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Pune">Pune</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Noida">Noida</option>
+            <option value="Gurgaon">Gurgaon</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Ahmedabad">Ahmedabad</option>
+          </select>
         </label>
+
         <label className="flex flex-col">
           Upload Resume:
           <input
